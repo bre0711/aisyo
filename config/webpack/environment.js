@@ -1,8 +1,4 @@
 const { environment } = require('@rails/webpacker')
-
-
-// ここから
-// jQueryとBootstapのJSを使えるように
 const webpack = require('webpack')
 environment.plugins.prepend(
   'Provide',
@@ -12,6 +8,5 @@ environment.plugins.prepend(
     Popper: 'popper.js'
   })
 )
-// ここまで
 
 module.exports = environment
