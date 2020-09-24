@@ -30,3 +30,6 @@
 
 - belongs_to :user
 
+
+
+
