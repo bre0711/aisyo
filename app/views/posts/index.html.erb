@@ -1,0 +1,49 @@
+
+<div class="jumbotron">
+  <div class="container">
+  <div class="text-center">
+  <h1>SANSUKUMI</h1>
+</div>
+<div class="text-center">
+  <p>SANSUKUMIとは、対戦型格闘ゲームの相性表作成ツールです。
+  <br>また、他のユーザーの作成した相性表を元にした平均値を探すこともできます。</p>
+  <br>
+  <br>
+  <br>
+</div>
+<% if user_signed_in? %>
+  <div class="dropdown move_bottom_2">
+    <button type="button" id="dropdown2"
+        class="btn btn-secondary dropdown-toggle btn-lg"
+        data-toggle="dropdown"
+        aria-haspopup="true"
+        aria-expanded="false">
+        作成したグラフを見る
+    </button>
+      <div class="dropdown-menu" aria-labelledby="dropdown1">
+        <%= link_to 'Soldier', my_soldier_post_path(current_user.id),class:"dropdown-item" %>
+        <%= link_to 'Wizard', my_wizard_post_path(current_user.id),class:"dropdown-item"%> 
+        <%= link_to 'Monk', my_monk_post_path(current_user.id),class:"dropdown-item"%> 
+        <%= link_to 'Fighter', my_fighter_post_path(current_user.id),class:"dropdown-item" %>
+        <%= link_to 'Gunner', my_gunner_post_path(current_user.id),class:"dropdown-item"%> 
+      </div>
+  </div>
+<% else %>
+
+<% end %>
+<div class="dropdown move_bottom">
+  <button type="button" id="dropdown2"
+      class="btn btn-secondary dropdown-toggle btn-lg"
+      data-toggle="dropdown"
+      aria-haspopup="true"
+      aria-expanded="false">
+    平均値を探す
+  </button>
+    <div class="dropdown-menu" aria-labelledby="dropdown1">
+      <%= link_to 'Soldier', aisyo_soldier_posts_path,class:"dropdown-item" %>
+      <%= link_to 'Wizard', aisyo_wizard_posts_path,class:"dropdown-item"%> 
+      <%= link_to 'Monk', aisyo_monk_posts_path,class:"dropdown-item"%> 
+      <%= link_to 'Fighter', aisyo_fighter_posts_path,class:"dropdown-item" %>
+      <%= link_to 'Gunner', aisyo_gunner_posts_path,class:"dropdown-item"%> 
+    </div>
+</div>

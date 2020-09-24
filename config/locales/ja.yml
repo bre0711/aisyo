@@ -1,0 +1,12 @@
+ja:
+ activerecord:
+   attributes:
+     user:
+       nickname: ニックネーム
+     post:
+       select_id: 使用キャラ
+       vs_soldier_id: 剣士
+       vs_wizard_id: 魔法使い
+       vs_monk_id: 僧侶
+       vs_fighter_id: 格闘家
+       vs_gunner_id: 銃使い

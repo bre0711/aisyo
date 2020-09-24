@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Sansukumi</title>
+    <%= csp_meta_tag %>
+    <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application' %>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src='https://code.highcharts.com/highcharts.js'></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <link href="sticky-footer.css" rel="stylesheet">
+  </head>
+
+  <body>
+    <main role="main">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">SANSUKUMI</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <% if user_signed_in? %>
+      <li class="nav-item">
+        <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class:"nav-link"%>
+      </li>
+      <li class="nav-item">
+        <%= link_to '投稿する', new_post_path,class:"nav-link"%>
+      </li>
+      <% else %>
+      <li class="nav-item">
+        <%= link_to 'ログイン', new_user_session_path,class:"nav-link"%>
+      </li>
+      <li class="nav-item">
+        <%= link_to '新規登録', new_user_registration_path,class:"nav-link"%>
+      </li>
+      <% end %>
+      
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          その他のタイトル
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="#">・アニマルファイト</a>
+          <a class="dropdown-item" href="#">・アンダーグラウンドファイター</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">ジャンル一覧へ</a>
+        </div>
+      </li>
+    </ul>
+      <% if user_signed_in? %>
+      
+        <div class="navbar-brand"><%= current_user.nickname %></div>
+      
+      <% else %>
+        <%= link_to user_twitter_omniauth_authorize_path do %>
+          <%= image_tag "Twitter_Logo_Blue.png", class:"rounded mx-auto d-block glyphicon twitter-icon" %>
+        <% end %>
+      <% end %>
+        </nav>
+          <%= yield %>
+        </div>
+    </main>
+    <footer>
+      <div class="container">
+        <p class="text-muted footer-icon">aisyo.co</p>
+      </div>
+    </footer>
+  </body>
+</html>
+
