@@ -64,3 +64,6 @@ gem 'omniauth-twitter'
 gem 'dotenv-rails'
 gem 'rails-i18n'
 gem 'faker'
+group :production do
+  gem 'rails_12factor'
+end
