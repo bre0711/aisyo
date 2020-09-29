@@ -27,7 +27,7 @@
         <%= f.collection_select(:vs_gunner_id, VsGunner.all, :id, :name, {}, {class:"form-control vs_form"}) %>
         </div>
         <div class="form-group">
-        <%= f.submit "送信" ,class:"btn btn-secondary dropdown-toggle btn-lg" %>
+        <%= f.submit "投稿" ,class:"btn btn-secondary dropdown-toggle btn-lg" %>
         <%= render 'layouts/error_messages', model: f.object %>
         </div>
     <% end %>

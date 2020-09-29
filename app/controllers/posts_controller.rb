@@ -43,7 +43,7 @@ class PostsController < ApplicationController
   end
 
   def my_soldier
-    counter = Post.where(select_id: 2).last
+    counter = Post.where(select_id: 2,user_id: current_user.id).last
 
     if counter != nil
     @s_chart = LazyHighCharts::HighChart.new('graph') do |f|
@@ -64,9 +64,9 @@ class PostsController < ApplicationController
   end
 
   def my_wizard
-    counter = Post.where(select_id: 3).last
+    counter = Post.where(select_id: 3,user_id: current_user.id).last
 
-    if counter !=nnil
+    if counter != nil
     @w_chart = LazyHighCharts::HighChart.new('graph') do |f|
       f.title(text: "Soldier")
       f.xAxis(categories: ["Soldier", "Wizard", "Monk", "Fighter", "Gunner"])
@@ -85,7 +85,7 @@ class PostsController < ApplicationController
   end
 
   def my_monk
-    counter = Post.where(select_id: 4).last
+    counter = Post.where(select_id: 4,user_id: current_user.id).last
 
     if counter != nil
     @m_chart = LazyHighCharts::HighChart.new('graph') do |f|
@@ -106,7 +106,7 @@ class PostsController < ApplicationController
   end
 
   def my_fighter
-    counter = Post.where(select_id: 5).last
+    counter = Post.where(select_id: 5,user_id: current_user.id).last
 
     if counter != nil
     @f_chart = LazyHighCharts::HighChart.new('graph') do |f|
@@ -127,8 +127,7 @@ class PostsController < ApplicationController
   end
 
   def my_gunner
-    counter = Post.where(select_id: 6).last
-
+    counter = Post.where(select_id: 6,user_id: current_user.id).last
     if counter != nil
     @g_chart = LazyHighCharts::HighChart.new('graph') do |f|
       f.title(text: "Soldier")
@@ -148,7 +147,7 @@ class PostsController < ApplicationController
   end
   
   def aisyo_soldier
-    counter = Post.where(select_id: 2).count
+    @counter = Post.where(select_id: 2).count
   
     sum_soldier = Post.where(select_id: 2).sum(:vs_soldier_id)
     sum_wizard = Post.where(select_id: 2).sum(:vs_wizard_id)
@@ -156,11 +155,17 @@ class PostsController < ApplicationController
     sum_fighter = Post.where(select_id: 2).sum(:vs_fighter_id)
     sum_gunner = Post.where(select_id: 2).sum(:vs_gunner_id)
     
-    soldier = sum_soldier / counter.to_f
-    wizard = sum_wizard / counter.to_f
-    monk = sum_monk / counter.to_f
-    fighter = sum_fighter / counter.to_f
-    gunner = sum_gunner / counter.to_f
+    soldier = sum_soldier / @counter.to_f
+    wizard = sum_wizard / @counter.to_f
+    monk = sum_monk / @counter.to_f
+    fighter = sum_fighter / @counter.to_f
+    gunner = sum_gunner / @counter.to_f
+
+    soldier = soldier.floor(2).to_f
+    wizard = wizard.floor(2).to_f
+    monk = monk.floor(2).to_f
+    fighter = fighter.floor(2).to_f
+    gunner = gunner.floor(2).to_f
   
     @chart = LazyHighCharts::HighChart.new('graph') do |f|
       f.title(text: "Soldier")
@@ -176,7 +181,7 @@ class PostsController < ApplicationController
   end
 
   def aisyo_wizard
-    counter = Post.where(select_id: 3).count
+    @counter = Post.where(select_id: 3).count
   
     sum_soldier = Post.where(select_id: 3).sum(:vs_soldier_id)
     sum_wizard = Post.where(select_id: 3).sum(:vs_wizard_id)
@@ -184,12 +189,18 @@ class PostsController < ApplicationController
     sum_fighter = Post.where(select_id: 3).sum(:vs_fighter_id)
     sum_gunner = Post.where(select_id: 3).sum(:vs_gunner_id)
     
-    soldier = sum_soldier / counter.to_f
-    wizard = sum_wizard / counter.to_f
-    monk = sum_monk / counter.to_f
-    fighter = sum_fighter / counter.to_f
-    gunner = sum_gunner / counter.to_f
+    soldier = sum_soldier / @counter.to_f
+    wizard = sum_wizard / @counter.to_f
+    monk = sum_monk / @counter.to_f
+    fighter = sum_fighter / @counter.to_f
+    gunner = sum_gunner / @counter.to_f
   
+    soldier = soldier.floor(2).to_f
+    wizard = wizard.floor(2).to_f
+    monk = monk.floor(2).to_f
+    fighter = fighter.floor(2).to_f
+    gunner = gunner.floor(2).to_f
+
     @chart = LazyHighCharts::HighChart.new('graph') do |f|
       f.title(text: "Wizard")
       f.xAxis(categories: ["Soldier", "Wizard", "Monk", "Fighter", "Gunner"])
@@ -204,7 +215,7 @@ class PostsController < ApplicationController
   end
 
   def aisyo_monk
-    counter = Post.where(select_id: 4).count
+    @counter = Post.where(select_id: 4).count
   
     sum_soldier = Post.where(select_id: 4).sum(:vs_soldier_id)
     sum_wizard = Post.where(select_id: 4).sum(:vs_wizard_id)
@@ -212,12 +223,18 @@ class PostsController < ApplicationController
     sum_fighter = Post.where(select_id: 4).sum(:vs_fighter_id)
     sum_gunner = Post.where(select_id: 4).sum(:vs_gunner_id)
     
-    soldier = sum_soldier / counter.to_f
-    wizard = sum_wizard / counter.to_f
-    monk = sum_monk / counter.to_f
-    fighter = sum_fighter / counter.to_f
-    gunner = sum_gunner / counter.to_f
+    soldier = sum_soldier / @counter.to_f
+    wizard = sum_wizard / @counter.to_f
+    monk = sum_monk / @counter.to_f
+    fighter = sum_fighter / @counter.to_f
+    gunner = sum_gunner / @counter.to_f
   
+    soldier = soldier.floor(2).to_f
+    wizard = wizard.floor(2).to_f
+    monk = monk.floor(2).to_f
+    fighter = fighter.floor(2).to_f
+    gunner = gunner.floor(2).to_f
+
     @chart = LazyHighCharts::HighChart.new('graph') do |f|
       f.title(text: "Monk")
       f.xAxis(categories: ["Soldier", "Wizard", "Monk", "Fighter", "Gunner"])
@@ -232,7 +249,7 @@ class PostsController < ApplicationController
   end
 
   def aisyo_fighter
-    counter = Post.where(select_id: 5).count
+    @counter = Post.where(select_id: 5).count
   
     sum_soldier = Post.where(select_id: 5).sum(:vs_soldier_id)
     sum_wizard = Post.where(select_id: 5).sum(:vs_wizard_id)
@@ -240,12 +257,18 @@ class PostsController < ApplicationController
     sum_fighter = Post.where(select_id: 5).sum(:vs_fighter_id)
     sum_gunner = Post.where(select_id: 5).sum(:vs_gunner_id)
     
-    soldier = sum_soldier / counter.to_f
-    wizard = sum_wizard / counter.to_f
-    monk = sum_monk / counter.to_f
-    fighter = sum_fighter / counter.to_f
-    gunner = sum_gunner / counter.to_f
+    soldier = sum_soldier / @counter.to_f
+    wizard = sum_wizard / @counter.to_f
+    monk = sum_monk / @counter.to_f
+    fighter = sum_fighter / @counter.to_f
+    gunner = sum_gunner / @counter.to_f
   
+    soldier = soldier.floor(2).to_f
+    wizard = wizard.floor(2).to_f
+    monk = monk.floor(2).to_f
+    fighter = fighter.floor(2).to_f
+    gunner = gunner.floor(2).to_f
+
     @chart = LazyHighCharts::HighChart.new('graph') do |f|
       f.title(text: "Fighter")
       f.xAxis(categories: ["Soldier", "Wizard", "Monk", "Fighter", "Gunner"])
@@ -260,7 +283,7 @@ class PostsController < ApplicationController
   end
 
   def aisyo_gunner
-    counter = Post.where(select_id: 6).count
+    @counter = Post.where(select_id: 6).count
   
     sum_soldier = Post.where(select_id: 6).sum(:vs_soldier_id)
     sum_wizard = Post.where(select_id: 6).sum(:vs_wizard_id)
@@ -268,12 +291,18 @@ class PostsController < ApplicationController
     sum_fighter = Post.where(select_id: 6).sum(:vs_fighter_id)
     sum_gunner = Post.where(select_id: 6).sum(:vs_gunner_id)
     
-    soldier = sum_soldier / counter.to_f
-    wizard = sum_wizard / counter.to_f
-    monk = sum_monk / counter.to_f
-    fighter = sum_fighter / counter.to_f
-    gunner = sum_gunner / counter.to_f
+    soldier = sum_soldier / @counter.to_f
+    wizard = sum_wizard / @counter.to_f
+    monk = sum_monk / @counter.to_f
+    fighter = sum_fighter / @counter.to_f
+    gunner = sum_gunner / @counter.to_f
   
+    soldier = soldier.floor(2).to_f
+    wizard = wizard.floor(2).to_f
+    monk = monk.floor(2).to_f
+    fighter = fighter.floor(2).to_f
+    gunner = gunner.floor(2).to_f
+        
     @chart = LazyHighCharts::HighChart.new('graph') do |f|
       f.title(text: "Gunner")
       f.xAxis(categories: ["Soldier", "Wizard", "Monk", "Fighter", "Gunner"])
@@ -293,6 +322,7 @@ class PostsController < ApplicationController
     params.require(:post).permit(:select_id,:vs_soldier_id,:vs_wizard_id,:vs_monk_id,:vs_fighter_id,:vs_gunner_id).merge(user_id: current_user.id)
   end
 
+  
   def move_to_root
     redirect_to root_path unless user_signed_in?
   end
