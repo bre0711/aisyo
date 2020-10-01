@@ -1,0 +1,19 @@
+<div class="card col-sm-5 mx-auto mt-5">
+  <div class="card-body">
+    <h3 class="mt-1 mb-3">お問合せフォーム</h3>
+      <%= form_with model: @contact do |f| %>
+      <%= render 'layouts/error_messages', model: f.object %>
+      <div class="form-group">
+        <%= f.label :e_mail,"メールアドレス", :class => "form-label" %>
+        <%= f.email_field :e_mail, autofocus: true, autocomplete: "email", :class => "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :message,"お問い合わせ内容", :class => "form-label" %>
+        <%= f.text_area :message, size: "20x10", :class => "form-control" %>
+      </div>
+  
+      <div class="actions">
+        <%= f.submit "送信" ,class:"btn btn-secondary dropdown-toggle btn-lg" %>
+      </div>
+      <% end %>
+</div>

@@ -3,11 +3,14 @@ Rails.application.routes.draw do
     :registrations => 'users/registrations',
     :sessions => 'users/sessions',
     :passwords => 'users/passwords',
-    # このpathを通して外部API認証が行われる。
     :omniauth_callbacks => 'users/omniauth_callbacks'
+    
    }
+   resources :contacts do
+   end
   root to: "posts#index"
   resources :posts do
+    
     collection do
       get :aisyo_soldier
       get :aisyo_wizard
@@ -23,5 +26,5 @@ Rails.application.routes.draw do
       get :my_gunner
     end
   end
-
+  
 end
