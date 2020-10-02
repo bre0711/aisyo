@@ -6,10 +6,11 @@ Rails.application.routes.draw do
     :omniauth_callbacks => 'users/omniauth_callbacks'
     
    }
-   resources :contacts do
-   end
+  resources :contacts, only: [:new, :create] do
+  end
+
   root to: "posts#index"
-  resources :posts do
+  resources :posts, only: [:index, :new, :create] do
     
     collection do
       get :aisyo_soldier
@@ -17,6 +18,7 @@ Rails.application.routes.draw do
       get :aisyo_monk
       get :aisyo_fighter
       get :aisyo_gunner
+      get :about
     end
     member do
       get :my_soldier
@@ -24,6 +26,7 @@ Rails.application.routes.draw do
       get :my_monk
       get :my_fighter
       get :my_gunner
+      
     end
   end
   
