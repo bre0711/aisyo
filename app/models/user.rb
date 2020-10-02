@@ -5,8 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable,
          :omniauthable, omniauth_providers: %i[twitter google_oauth2]
   has_many :posts
-  # has_one :aisyo_soldier
-
 
   validates :nickname, presence: true, length: { maximum: 12 }
 

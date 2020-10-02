@@ -2,18 +2,6 @@ class PostsController < ApplicationController
   before_action :move_to_root, only: [:new, :create]
 
   def index
-    @posts = Post.includes(:user).order('created_at DESC')
-    @chart = LazyHighCharts::HighChart.new('graph') do |f|
-      f.title(text: "Soldier")
-      f.xAxis(categories: ["Soldier", "Wizard", "Monk", "Fighter", "Gunner"])
-      f.series(name: "", yAxis: 1, data: [:vs_soldier_id,:vs_wizard_id,:vs_monk_id,:vs_fighter_id,:vs_gunner_id])
-      f.yAxis [
-        {title: {text: "", margin: 0} },
-        {title: {text: ""}, opposite: true},
-      ]
-      f.legend(align: 'none')
-      f.chart({defaultSeriesType: "column"})
-    end
   end
 
   def new

@@ -12,10 +12,10 @@ class ContactsController < ApplicationController
       redirect_to new_contact_path
     end
   end
-end
 
 private
 
-def contact_params
-  params.require(:contact).permit(:e_mail, :message)
+  def contact_params
+    params.require(:contact).permit(:e_mail, :message)
+  end
 end
