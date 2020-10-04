@@ -1,5 +1,5 @@
 # アプリケーション名
-SANSUKUMI
+AISYO
 
 # アプリケーション概要
 格闘ゲームをする人に向けた相性表の作成アプリ。<br>
@@ -116,7 +116,7 @@ https://i.gyazo.com/58293938f3ff6a93504762fd1e01aa64.png
 # データベース設計
 ## ER図
 画像URL<br>
-https://i.gyazo.com/9843a1fa50e3d0dc4be4952f1d1e6a7f.png
+https://i.gyazo.com/fea297d4a76349602075ee3eb23981f3.png
 
 ## users テーブル
 
