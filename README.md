@@ -88,25 +88,25 @@ Zaq12wsx
 # 実装した機能についてのGIFと説明
 - ツイッターアカウントでログインができるようにした。<br>
 GIF<br>
-https://i.gyazo.com/b3038491453f04bf243dfa118140207e.mp4<br>
+https://i.gyazo.com/cb2993043ee7b718d54d543ab81957e5.mp4<br>
 
 - 相性表の内容がユーザーごとで統一されるように+2から-2で値を固定した。<br>
 GIF<br>
-https://i.gyazo.com/ad3e516287fc40337d82c7d97180b354.mp4<br>
+https://i.gyazo.com/a254062f4c597e9928bb3423d64ce1a1.mp4<br>
 
 - 投稿された情報を可視化しやすくするためグラフにして表示できるようにした。<br>
 GIF<br>
-https://i.gyazo.com/87316e4a4d046460517a4d6868188f2c.mp4<br>
+https://i.gyazo.com/8611844b4352f7f65f4d7a370441dc83.mp4<br>
 
 - 全てのユーザーの情報を元に平均値を出したグラフを表示できるようにした。<br>
 GIF<br>
-https://i.gyazo.com/5a93e37148170ada636f27cda4e8f106.mp4<br>
+https://i.gyazo.com/1b46d885478212f949f29c31c9bfc05c.mp4<br>
 
-- 問合わせページからフォームを送信すると設定したメールアドレスに問い合わせメールが届くようにした。<br>
+- お問合わせページからフォームを送信すると設定したメールアドレスに問い合わせメールが届くようにした。<br>
 GIF<br>
-https://i.gyazo.com/8d475b09c05fb7d84113dbdb29667029.mp4<br>
+https://i.gyazo.com/3df1f555bbe6095897d5dec631a20c7d.mp4<br>
 画像URL<br>
-https://i.gyazo.com/58293938f3ff6a93504762fd1e01aa64.png
+https://i.gyazo.com/211dcd2b34a3fd283e78e1178b7a0fd3.png
 
 # 実装予定の機能
 - ログイン時にメールアドレスを忘れた場合に再発行、またはパスワードを記入したメールを送信する機能の実装。
