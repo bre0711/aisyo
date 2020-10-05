@@ -168,10 +168,6 @@ https://i.gyazo.com/fea297d4a76349602075ee3eb23981f3.png
 ## 開発環境
 - Ruby/Ruby on Rails/MySQL/Github/heroku/Visual Studio Code
 
-## heroku ID/PW
-- ID: brezelgukptp0@gmail.com
-- PW: Ryunosuke0711?
-
 ## バージョン
 
 - rails 6.0.0
